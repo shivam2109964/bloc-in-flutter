@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "274636634429",
+    "project_id": "e-sport11-b831a",
+    "storage_bucket": "e-sport11-b831a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:274636634429:android:f21354d715c7250ddced54",
+        "android_client_info": {
+          "package_name": "com.bloc.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBM_6jnSNfQgbjm1BLu-5lJVyCObf01EEU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
