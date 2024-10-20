@@ -1,9 +1,12 @@
-import 'package:bloc/Model/AppFonts/fonts.dart';
-import 'package:bloc/Model/Color/colors.dart';
-import 'package:bloc/Model/Color/polygon.dart';
-import 'package:bloc/Model/Color/polygon1.dart';
-import 'package:bloc/Model/Color/polygonShadow.dart';
+
+import 'package:blocc/Model/AppFonts/fonts.dart';
+import 'package:blocc/Model/Color/colors.dart';
+import 'package:blocc/Model/Color/polygon.dart';
+import 'package:blocc/Model/Color/polygon1.dart';
+import 'package:blocc/View/Home/home.dart';
 import 'package:flutter/material.dart';
+
+import '../../Model/Color/polygonShadow.dart';
 
 class Welcome extends StatelessWidget {
   const Welcome({super.key});
@@ -78,31 +81,41 @@ class Welcome extends StatelessWidget {
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.1,
             ),
-            Container(
-              height: MediaQuery.of(context).size.height * 0.1,
-              width: MediaQuery.of(context).size.width * 0.7,
-              decoration: BoxDecoration(
-                color: BlocColor.baseColor,
-                borderRadius: BorderRadius.circular(15),
-                boxShadow: const [
-                  BoxShadow(
-                    color: BlocColor.shadowColor,
-                    offset: Offset(6, 10),
-                    blurRadius: 7,
+            MaterialButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const Home(),
                   ),
-                  BoxShadow(
-                    color: BlocColor.highlightColor,
-                    offset: Offset(-6, -10),
-                    blurRadius: 7,
-                  ),
-                ],
-              ),
-              child: Center(
-                child: Text(
-                  "Start Now",
-                  style: AppFonts.montserratTextStyle(
-                    fontSize: 18,
-                    color: BlocColor.headlineFontColor,
+                );
+              },
+              child: Container(
+                height: MediaQuery.of(context).size.height * 0.1,
+                width: MediaQuery.of(context).size.width * 0.7,
+                decoration: BoxDecoration(
+                  color: BlocColor.baseColor,
+                  borderRadius: BorderRadius.circular(15),
+                  boxShadow: const [
+                    BoxShadow(
+                      color: BlocColor.shadowColor,
+                      offset: Offset(6, 10),
+                      blurRadius: 7,
+                    ),
+                    BoxShadow(
+                      color: BlocColor.highlightColor,
+                      offset: Offset(-6, -10),
+                      blurRadius: 7,
+                    ),
+                  ],
+                ),
+                child: Center(
+                  child: Text(
+                    "Start Now",
+                    style: AppFonts.montserratTextStyle(
+                      fontSize: 18,
+                      color: BlocColor.headlineFontColor,
+                    ),
                   ),
                 ),
               ),

@@ -1,7 +1,7 @@
 import 'package:blocc/Model/Color/colors.dart';
 import 'package:flutter/material.dart';
 
-class PolygonWithShadow extends CustomPainter {
+class PolygonWithInnerShadow extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     double width = size.width;
@@ -9,23 +9,23 @@ class PolygonWithShadow extends CustomPainter {
     double centerX = width / 2;
     double centerY = height / 2;
 
-    // Define shadow paint
-    Paint shadowPaint = Paint()
+    // Define shadow paint for the inner shadow (darker side)
+    Paint innerShadowPaint = Paint()
       ..color = BlocColor.shadowColor
       ..style = PaintingStyle.fill
       ..maskFilter = const MaskFilter.blur(
-          BlurStyle.normal, 6); // Creates a soft shadow effect
+          BlurStyle.normal, 0); // Creates a soft shadow effect
 
-    // Define shadow paint
-    Paint shadowPaint1 = Paint()
+    // Define highlight paint for the inner shadow (lighter side)
+    Paint innerHighlightPaint = Paint()
       ..color = BlocColor.highlightColor
       ..style = PaintingStyle.fill
       ..maskFilter = const MaskFilter.blur(
-          BlurStyle.normal, 6); // Creates a soft shadow effect
+          BlurStyle.normal, 0); // Creates a soft shadow effect
 
-    // Define polygon paint
+    // Define polygon paint (main surface)
     Paint polygonPaint = Paint()
-      ..color = BlocColor.baseColor
+      ..color = Colors.white
       ..style = PaintingStyle.fill;
 
     Path hexagonPath = Path();
@@ -39,22 +39,22 @@ class PolygonWithShadow extends CustomPainter {
     hexagonPath.lineTo(centerX - width / 2, centerY - height / 4); // Top-left
     hexagonPath.close();
 
-    // Draw the shadow slightly offset from the polygon
+    // Clip the canvas to the shape of the polygon
+    canvas.clipPath(hexagonPath);
+
+    // Draw the inner shadow (dark side) by translating the shape slightly
     canvas.save();
-    canvas.translate(8, 10); // Offset shadow downwards
-    canvas.drawPath(hexagonPath, shadowPaint); // Draw shadow
+    canvas.translate(8, 8); // Slight offset for inner shadow
+    canvas.drawPath(hexagonPath, innerShadowPaint);
     canvas.restore();
 
-    // Draw the actual polygon on top
-    canvas.drawPath(hexagonPath, polygonPaint);
-
-    // Draw the shadow slightly offset from the polygon
+    // Draw the inner highlight (light side) by translating in the opposite direction
     canvas.save();
-    canvas.translate(-8, -10); // Offset shadow downwards
-    canvas.drawPath(hexagonPath, shadowPaint1); // Draw shadow
+    canvas.translate(-8, -8); // Slight offset for inner highlight
+    canvas.drawPath(hexagonPath, innerHighlightPaint);
     canvas.restore();
 
-    // Draw the actual polygon on top
+    // Draw the main polygon surface on top
     canvas.drawPath(hexagonPath, polygonPaint);
   }
 

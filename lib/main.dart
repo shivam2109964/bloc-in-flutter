@@ -1,4 +1,4 @@
-import 'package:bloc/MyApp.dart';
+import 'package:blocc/MyApp.dart';
 import 'package:flutter/widgets.dart';
 
 void main() {
