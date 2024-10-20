@@ -1,3 +1,4 @@
+import 'package:blocc/Model/Color/colors.dart';
 import 'package:blocc/View/Welcome/welcome.dart';
 import 'package:blocc/View_Model/bottomNav/botton_nav_bloc.dart';
 import 'package:flutter/material.dart';
@@ -18,6 +19,10 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           useMaterial3: true,
+          scaffoldBackgroundColor: BlocColor.baseColor,
+          appBarTheme: const AppBarTheme(
+            backgroundColor: BlocColor.baseColor,
+          ),
         ),
         home: const Welcome(),
       ),
