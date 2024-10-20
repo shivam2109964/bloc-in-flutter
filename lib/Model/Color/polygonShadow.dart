@@ -13,15 +13,15 @@ class PolygonWithShadow extends CustomPainter {
     Paint shadowPaint = Paint()
       ..color = BlocColor.shadowColor
       ..style = PaintingStyle.fill
-      ..maskFilter = const MaskFilter.blur(
-          BlurStyle.normal, 5); // Creates a soft shadow effect
+      ..maskFilter =
+          MaskFilter.blur(BlurStyle.normal, 10); // Creates a soft shadow effect
 
     // Define shadow paint
     Paint shadowPaint1 = Paint()
       ..color = BlocColor.highlightColor
       ..style = PaintingStyle.fill
-      ..maskFilter = const MaskFilter.blur(
-          BlurStyle.normal, 5); // Creates a soft shadow effect
+      ..maskFilter =
+          MaskFilter.blur(BlurStyle.normal, 10); // Creates a soft shadow effect
 
     // Define polygon paint
     Paint polygonPaint = Paint()
