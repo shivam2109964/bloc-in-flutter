@@ -39,60 +39,76 @@ class _HomeState extends State<Home> {
         ),
         centerTitle: true,
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Neumorphic(
-              drawSurfaceAboveChild: true,
-              style: const NeumorphicStyle(
-                shadowDarkColorEmboss: BlocColor.shadowColor,
-                shadowLightColorEmboss: BlocColor.highlightColor,
-                depth: -10,
-                intensity: 0.8,
-                shape: NeumorphicShape.convex,
-                lightSource: LightSource.topLeft,
-                color: BlocColor.baseColor,
-              ),
-              child: Container(
-                height: MediaQuery.of(context).size.height * 0.2,
-                width: MediaQuery.of(context).size.width * 0.95,
-              ),
-            ),
-            Neumorphic(
-              drawSurfaceAboveChild: true,
-              style: const NeumorphicStyle(
-                shadowDarkColorEmboss: BlocColor.shadowColor,
-                shadowLightColorEmboss: BlocColor.highlightColor,
-                depth: -10,
-                intensity: 0.8,
-                shape: NeumorphicShape.convex,
-                lightSource: LightSource.topLeft,
-                color: BlocColor.baseColor,
-              ),
-              child: Container(
-                height: MediaQuery.of(context).size.height * 0.2,
-                width: MediaQuery.of(context).size.width * 0.95,
-              ),
-            ),
-            Neumorphic(
-              drawSurfaceAboveChild: true,
-              style: const NeumorphicStyle(
-                shadowDarkColorEmboss: BlocColor.shadowColor,
-                shadowLightColorEmboss: BlocColor.highlightColor,
-                depth: -10,
-                intensity: 0.8,
-                shape: NeumorphicShape.convex,
-                lightSource: LightSource.topLeft,
-                color: BlocColor.baseColor,
-              ),
-              child: Container(
-                height: MediaQuery.of(context).size.height * 0.2,
-                width: MediaQuery.of(context).size.width * 0.95,
-              ),
-            ),
-          ],
-        ),
+      body: BlocBuilder<BottonNavBloc, int>(
+        builder: (context, index) {
+          switch (index) {
+            case 0:
+              return Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Neumorphic(
+                      drawSurfaceAboveChild: true,
+                      style: const NeumorphicStyle(
+                        shadowDarkColorEmboss: BlocColor.shadowColor,
+                        shadowLightColorEmboss: BlocColor.highlightColor,
+                        depth: -10,
+                        intensity: 0.8,
+                        shape: NeumorphicShape.convex,
+                        lightSource: LightSource.topLeft,
+                        color: BlocColor.baseColor,
+                      ),
+                      child: Container(
+                        height: MediaQuery.of(context).size.height * 0.2,
+                        width: MediaQuery.of(context).size.width * 0.95,
+                      ),
+                    ),
+                    Neumorphic(
+                      drawSurfaceAboveChild: true,
+                      style: const NeumorphicStyle(
+                        shadowDarkColorEmboss: BlocColor.shadowColor,
+                        shadowLightColorEmboss: BlocColor.highlightColor,
+                        depth: -10,
+                        intensity: 0.8,
+                        shape: NeumorphicShape.convex,
+                        lightSource: LightSource.topLeft,
+                        color: BlocColor.baseColor,
+                      ),
+                      child: Container(
+                        height: MediaQuery.of(context).size.height * 0.2,
+                        width: MediaQuery.of(context).size.width * 0.95,
+                      ),
+                    ),
+                    Neumorphic(
+                      drawSurfaceAboveChild: true,
+                      style: const NeumorphicStyle(
+                        shadowDarkColorEmboss: BlocColor.shadowColor,
+                        shadowLightColorEmboss: BlocColor.highlightColor,
+                        depth: -10,
+                        intensity: 0.8,
+                        shape: NeumorphicShape.convex,
+                        lightSource: LightSource.topLeft,
+                        color: BlocColor.baseColor,
+                      ),
+                      child: Container(
+                        height: MediaQuery.of(context).size.height * 0.2,
+                        width: MediaQuery.of(context).size.width * 0.95,
+                      ),
+                    ),
+                  ],
+                ),
+              );
+            case 1:
+              return const Center(
+                child: Text("Star"),
+              );
+            case 2:
+              return const Center(
+                child: Text("Profile"),
+              );
+          }
+          return Container();
+        },
       ),
       bottomNavigationBar: BlocBuilder<BottonNavBloc, int>(
         builder: (context, index) {
