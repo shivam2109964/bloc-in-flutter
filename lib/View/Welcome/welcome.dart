@@ -1,4 +1,3 @@
-
 import 'package:blocc/Model/AppFonts/fonts.dart';
 import 'package:blocc/Model/Color/colors.dart';
 import 'package:blocc/Model/Color/polygon.dart';
@@ -105,7 +104,7 @@ class Welcome extends StatelessWidget {
                     BoxShadow(
                       color: BlocColor.highlightColor,
                       offset: Offset(-6, -10),
-                      blurRadius: 7,
+                      blurRadius: 15,
                     ),
                   ],
                 ),

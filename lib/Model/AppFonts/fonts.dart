@@ -13,4 +13,16 @@ class AppFonts {
       fontWeight: fontWeight,
     );
   }
+
+  static TextStyle poppinsTextStyle({
+    required double fontSize,
+    required Color color,
+    FontWeight fontWeight = FontWeight.normal,
+  }) {
+    return GoogleFonts.poppins(
+      fontSize: fontSize,
+      color: color,
+      fontWeight: fontWeight,
+    );
+  }
 }

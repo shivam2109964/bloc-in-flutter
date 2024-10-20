@@ -1,5 +1,6 @@
 import 'package:blocc/Model/AppFonts/fonts.dart';
 import 'package:blocc/Model/Color/colors.dart';
+import 'package:blocc/View/Home/Content/contentHome.dart';
 import 'package:blocc/View_Model/bottomNav/botton_nav_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -22,7 +23,7 @@ class _HomeState extends State<Home> {
         backgroundColor: BlocColor.baseColor,
         leading: const SizedBox(),
         title: Text(
-          "Content",
+          "Bloc",
           style: AppFonts.montserratTextStyle(
             fontSize: 20,
             color: BlocColor.headlineFontColor,
@@ -43,60 +44,8 @@ class _HomeState extends State<Home> {
         builder: (context, index) {
           switch (index) {
             case 0:
-              return Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Neumorphic(
-                      drawSurfaceAboveChild: true,
-                      style: const NeumorphicStyle(
-                        shadowDarkColorEmboss: BlocColor.shadowColor,
-                        shadowLightColorEmboss: BlocColor.highlightColor,
-                        depth: -10,
-                        intensity: 0.8,
-                        shape: NeumorphicShape.convex,
-                        lightSource: LightSource.topLeft,
-                        color: BlocColor.baseColor,
-                      ),
-                      child: Container(
-                        height: MediaQuery.of(context).size.height * 0.2,
-                        width: MediaQuery.of(context).size.width * 0.95,
-                      ),
-                    ),
-                    Neumorphic(
-                      drawSurfaceAboveChild: true,
-                      style: const NeumorphicStyle(
-                        shadowDarkColorEmboss: BlocColor.shadowColor,
-                        shadowLightColorEmboss: BlocColor.highlightColor,
-                        depth: -10,
-                        intensity: 0.8,
-                        shape: NeumorphicShape.convex,
-                        lightSource: LightSource.topLeft,
-                        color: BlocColor.baseColor,
-                      ),
-                      child: Container(
-                        height: MediaQuery.of(context).size.height * 0.2,
-                        width: MediaQuery.of(context).size.width * 0.95,
-                      ),
-                    ),
-                    Neumorphic(
-                      drawSurfaceAboveChild: true,
-                      style: const NeumorphicStyle(
-                        shadowDarkColorEmboss: BlocColor.shadowColor,
-                        shadowLightColorEmboss: BlocColor.highlightColor,
-                        depth: -10,
-                        intensity: 0.8,
-                        shape: NeumorphicShape.convex,
-                        lightSource: LightSource.topLeft,
-                        color: BlocColor.baseColor,
-                      ),
-                      child: Container(
-                        height: MediaQuery.of(context).size.height * 0.2,
-                        width: MediaQuery.of(context).size.width * 0.95,
-                      ),
-                    ),
-                  ],
-                ),
+              return const Center(
+                child: ContentHome(),
               );
             case 1:
               return const Center(
@@ -127,17 +76,32 @@ class _HomeState extends State<Home> {
             labelBehavior: NavigationDestinationLabelBehavior.alwaysHide,
             destinations: const [
               NavigationDestination(
-                icon: Icon(Icons.home),
+                icon: Image(
+                  image: AssetImage(
+                    "assets/home.png",
+                  ),
+                  height: 24,
+                ),
                 label: "Home",
                 enabled: true,
               ),
               NavigationDestination(
-                icon: Icon(Icons.star),
+                icon: Image(
+                  image: AssetImage(
+                    "assets/Vector.png",
+                  ),
+                  height: 20,
+                ),
                 label: "Star",
                 enabled: true,
               ),
               NavigationDestination(
-                icon: Icon(Icons.account_circle),
+                icon: Image(
+                  image: AssetImage(
+                    "assets/prof.png",
+                  ),
+                  height: 20,
+                ),
                 label: "Profile",
                 enabled: true,
               ),
